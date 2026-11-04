@@ -1,0 +1,16 @@
+name: NeptunOptimize
+version: '${project.version}'
+main: de.neptun.optimize.NeptunOptimize
+api-version: '1.21'
+author: Neptun
+description: Unendliches Dörfler-Handeln, XP/Item/Mob-Stacking und weniger Kollisions-Rechenlast
+commands:
+  neptunoptimize:
+    description: Konfiguration von NeptunOptimize neu laden
+    usage: /neptunoptimize
+    aliases: [noptimize]
+    permission: neptunoptimize.admin
+permissions:
+  neptunoptimize.admin:
+    description: /neptunoptimize benutzen
+    default: op

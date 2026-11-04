@@ -1,0 +1,48 @@
+# Performance-Einstellungen. Nach Aenderungen reicht /neptunoptimize (laedt neu).
+
+villagers:
+  # Doerfler/Wanderhaendler koennen unendlich oft gehandelt werden (kein "ausverkauft",
+  # keine steigenden Preise durch mehrfaches Handeln).
+  infinite-trades: true
+
+xp:
+  # Nah beieinander liegende XP-Orbs werden zu einem zusammengefasst statt als viele
+  # einzelne Entities zu existieren.
+  merge: true
+  merge-radius: 3.0
+
+items:
+  # Gleiche Items am Boden werden zu einem Entity mit "xN"-Namensschild zusammengefasst,
+  # auch wenn der Gegenstand eigentlich gar nicht stapelt (Werkzeuge, Waffen, Ruestung).
+  # Beim Aufsammeln bekommt der Spieler trotzdem die volle, echte Menge.
+  merge: true
+  merge-radius: 2.5
+  # Ab dieser Gesamtmenge wird nicht weiter zusammengelegt (Sicherheitsgrenze).
+  merge-cap: 6400
+
+mobs:
+  # Gleiche Mobs aus der Liste unten werden periodisch zu einem reglosen Mob mit
+  # "xN"-Namensschild zusammengefasst. Ein toedlicher Treffer zieht nur EINEN vom Stapel ab
+  # (mit normalem Loot/XP fuer einen Mob dieses Typs), der Rest bleibt stehen.
+  stack: true
+  stack-radius: 4.0
+  max-stack: 200
+  scan-interval-ticks: 100
+  types:
+    - ZOMBIE
+    - HUSK
+    - DROWNED
+    - SKELETON
+    - STRAY
+    - WITHER_SKELETON
+    - SPIDER
+    - CREEPER
+  # Einzelne Mobs vom Stacking ausnehmen: ihnen das Scoreboard-Tag "no_stack" geben
+  # (z.B. per /tag <ziel> add no_stack).
+
+entities:
+  # Mobs, die weit von jedem Spieler entfernt sind, bekommen ihre Kollisionsabfrage
+  # abgeschaltet - spart laufende Rechenlast, ist aber keine echte Sichtbarkeits-Kulisse.
+  reduce-collision: true
+  collision-distance: 24.0
+  check-interval-ticks: 40
